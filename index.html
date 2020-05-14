@@ -12,7 +12,8 @@
         <script>
             const oneDay = 24 * 60 * 60 * 1000; 
             const firstDate = new Date(2020, 1, 29);
-            const secondDate = new Date();
+            const now = new Date();
+            const secondDate = new Date(now.getFullYear(), now.getMonth(), now.getDate());
 
             var weekday = new Array(7);
             weekday[0] = "Bathday";
@@ -37,7 +38,7 @@
             document.getElementById("date").innerHTML = "March " + diffDays + ", 2020";
             document.getElementById("day").innerHTML = weekday[secondDate.getDay()] + ".  "+weekdayDesc[secondDate.getDay()];
 
-            hour = secondDate.getHours();
+            hour = now.getHours();
             if(hour >4 && hour < 9)
             {
                 document.getElementById("time").innerHTML = "Early Morning";
