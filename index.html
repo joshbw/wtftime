@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+    </head>
+    <body>
+        <h1>Today is <span id="date"></span></h1>
+        <h2>It is <span id="day"></span><br /><br />
+        Let's call it (looks outside) <span id="time"></span> o'clock</h2>
+
+
+        <script>
+            const oneDay = 24 * 60 * 60 * 1000; 
+            const firstDate = new Date(2020, 1, 29);
+            const secondDate = new Date();
+
+            var weekday = new Array(7);
+            weekday[0] = "Bathday";
+            weekday[1] = "Pantsday";
+            weekday[2] = "Trashday";
+            weekday[3] = "Dishesday";
+            weekday[4] = "Beddingday";
+            weekday[5] = "Friday";
+            weekday[6] = "Apathyday";
+
+            var weekdayDesc = new Array(7);
+            weekdayDesc[0] = "Consider taking a Shower today.";
+            weekdayDesc[1] = "Time to change your sweat pants.";
+            weekdayDesc[2] = "Go around the house and pick up the last weeks' worth of filth.";
+            weekdayDesc[3] = "Either wash some dishes or pick up more paper plates.";
+            weekdayDesc[4] = "Smell Bedding to see if it needs changing.";
+            weekdayDesc[5] = "Hey, let's pretend the old ways still matter, and congrats, you made it to the end of the week.";
+            weekdayDesc[6]= "Fuck it, do nothing Day.";
+
+            const diffDays = Math.round(Math.abs((firstDate - secondDate) / oneDay));
+
+            document.getElementById("date").innerHTML = "March " + diffDays + ", 2020";
+            document.getElementById("day").innerHTML = weekday[secondDate.getDay()] + ".  "+weekdayDesc[secondDate.getDay()];
+
+            hour = secondDate.getHours();
+            if(hour >4 && hour < 9)
+            {
+                document.getElementById("time").innerHTML = "Early Morning";
+            }
+            else if(hour >8 && hour < 12)
+            {
+                document.getElementById("time").innerHTML = "Late Morning";
+            }
+            else if (hour==12)
+            {
+                document.getElementById("time").innerHTML = "Noon";
+            }
+            else if(hour >12 && hour < 16)
+            {
+                document.getElementById("time").innerHTML = "Early Afternoon";
+            }
+            else if(hour >15 && hour < 18)
+            {
+                document.getElementById("time").innerHTML = "Late Afternoon";
+            }
+            else if(hour >17 && hour < 20)
+            {
+                document.getElementById("time").innerHTML = "Early Evening";
+            }
+            else if(hour >19 && hour < 22)
+            {
+                document.getElementById("time").innerHTML = "Late Evening";
+            }
+            else
+            {
+                document.getElementById("time").innerHTML = "Night";
+            }
+
+
+        </script>
+    </body>
+</html>
